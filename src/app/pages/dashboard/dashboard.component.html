@@ -1,0 +1,58 @@
+<div style="height: 100vh; background-color: #edf1ff">
+  <div class="row" style="width: 100%; height: 100%;">
+
+    <div #sidebar class="main-content col-1" style="">
+
+      <div class="header-content-main">
+      </div>
+
+      <div class="profile-content-root">
+        <div *ngIf="initFlag">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+    </div>
+
+    <div #main class="col-11" style="border: solid #4e73df;border-radius: 35px;height: 99vh;background-color: #98c1f1;">
+
+      <div style="height: 30%;text-align: center;">
+        <div style="height: 10%;"></div>
+        <div style="height: 40%;">
+          <img src="assets/avatar12.png" alt="" style="height: 80%;">
+        </div>
+        <div style="height: 10%;">
+          <p class="dynamic-text-profile" [textContent]=x></p>
+        </div>
+        <div style="height: 40px;">
+          <button class="user-edit-btn">ویرایش</button>
+        </div>
+        <div style="height: 40px;">
+          <button class="user-exit-btn" (click)="logout()">خروج</button>
+        </div>
+      </div>
+
+      <mat-divider class="divider-profile"></mat-divider>
+
+
+      <div style="height: 70%;text-align: center;">
+        <div class="user-tools-btns-content">
+          <button class="user-tool-btn" [routerLink]="['create-invoice']" (click)="newInvoice()">شروع سفر جدید</button>
+        </div>
+        <div class="user-tools-btns-content">
+          <button class="user-tool-btn" [routerLink]="['recent-invoice']" (click)="recentInvoice()">مدیریت سفر ها</button>
+        </div>
+        <div class="user-tools-btns-content">
+          <button class="user-tool-btn" [routerLink]="['edit-profile']" (click)="testfunc()">ویرایش پروفایل</button>
+        </div>
+        <div class="user-tools-btns-content">
+          <button class="user-tool-btn" [routerLink]="['edit-profile']" (click)="testfunc()">ویرایش پروفایل</button>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,134 @@
+.col-1{
+  transition-duration: 1s;
+}
+.col-11{
+  transition-duration: 1s;
+}
+.col-9{
+  transition-duration: 1s;
+}
+.col-3{
+  transition-duration: 1s;
+}
+.login-img{
+  position: absolute;
+  top: 10vh;
+  left: 55vh;
+  height: 46%;
+  border-radius: 30px;
+}
+.signup-img{
+  position: absolute;
+  top: 5vh;
+  left: 61vh;
+  height: 46%;
+  border-radius: 30px;
+}
+.login-form{
+  text-align: center;
+  width: 550px;
+  margin: auto;
+  position: relative;
+  top: 60vh;
+}
+.signup-form{
+  text-align: center;
+  width: 550px;
+  margin: auto;
+  position: relative;
+  top: 52vh;
+}
+.login-input-container{
+  width: 400px;
+  height: 60px;
+  border-radius: 50px;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: red;
+}
+.login-btn{
+  width: 400px;
+  margin: auto auto 20px;
+  background: #0c836f;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 23px;
+  font-family: "B Titr";
+}
+.signup-btn{
+  width: 400px;
+  margin: auto auto 20px;
+  background: #385da2;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 23px;
+  font-family: "B Titr";
+}
+.login-input-box{
+  text-align: right;
+  width: 400px;
+  float: left;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.login-input-container{
+  text-align: right;
+  width: 400px;
+  height: 60px;
+  border-radius: 50px;
+  margin: auto auto 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.signup-input-box{
+  text-align: right;
+  width: 400px;
+  float: left;
+  height: 60px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.signup-input-container{
+  text-align: right;
+  width: 400px;
+  height: 60px;
+  border-radius: 50px;
+  margin: auto auto 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.goto-login-btn{
+  width: 90px;
+  background: #489fb7;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 19px;
+  font-family: "B Titr";
+}
+.goto-signup-btn{
+  width: 90px;
+  background: #4e73df;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 19px;
+  font-family: "B Titr";
+}

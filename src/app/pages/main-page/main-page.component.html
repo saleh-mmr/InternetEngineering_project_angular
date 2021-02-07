@@ -1,0 +1,8 @@
+<div style="text-align: center;">
+  <button routerLink="/user" style="height: 60px; width: 100px;">user</button>
+</div>
+
+
+<div *ngIf="flag">Example</div>
+<div *ngIf="!flag" class="animated fadeOutLeft">Example</div>
+<button (click)="changFlag()">change</button>

@@ -1,0 +1,58 @@
+
+
+
+
+<div style="height: 100vh; background-color: #edf1ff">
+  <div class="row" style="width: 100%; height: 100%;">
+
+    <div #sidebar class="main-content col-1" style="border: solid #4e73df;border-radius: 35px;height: 99vh;background-color: #98c1f1;">
+      <div  *ngIf="isLogin" style=" margin: auto; position: absolute;top: 50%; left: 28%;">
+        <button (click)="turnToSignUp()" class="goto-signup-btn">ثبت نام</button>
+      </div>
+      <div *ngIf="!isLogin">
+        <img src="assets/trip16.gif" alt="" class="signup-img">
+      </div>
+      <div style="text-align: center" *ngIf="!isLogin">
+        <form action=""  [formGroup]="signupFormGroup" (ngSubmit)="signup()" class="signup-form">
+          <div class="signup-input-container">
+            <input type="text" name="username" placeholder="نام کاربری خود را وارد کنید" id="username" class="signup-input-box text-center" formControlName="username">
+          </div>
+          <div class="signup-input-container">
+            <input type="password" name="password" placeholder="رمزعبور خود را وارد کنید" id="password" class="signup-input-box text-center" formControlName="password">
+          </div>
+          <div class="signup-input-container">
+            <input type="password" name="username" placeholder="رمزعبور خود را مجددا وارد کنید" id="cpassword" class="signup-input-box text-center" formControlName="cpassword">
+          </div>
+          <div class="signup-input-container">
+            <input type="text" name="password" placeholder="ایمیل خود را وارد کنید" id="email" class="signup-input-box text-center" formControlName="email">
+          </div>
+          <div class="signup-input-container">
+            <input type="text" name="password" placeholder="شماره تماس خود را وارد کنید" id="phone" class="signup-input-box text-center" formControlName="phone">
+          </div>
+          <button type="submit" class="signup-btn">ثبت نام</button>
+        </form>
+      </div>
+    </div>
+
+    <div #main class="col-11" style="border: solid #4e73df;border-radius: 35px;height: 99vh;background-color: #cbe8f0;">
+      <div  *ngIf="!isLogin" style=" margin: auto; position: absolute;top: 50%; left: 28%;">
+        <button (click)="turnToSignIn()" class="goto-login-btn">ورود</button>
+      </div>
+      <div *ngIf="isLogin">
+        <img src="assets/planning2.jpg" alt="" class="login-img">
+      </div>
+      <div style="text-align: center" *ngIf="isLogin">
+        <form action=""  [formGroup]="loginFormGroup" (ngSubmit)="login()" style="position: relative;top: 60vh;">
+          <div class="login-input-container">
+            <input class="login-input-box" type="text" formControlName="user" placeholder="نام کاربری خود را وارد کنید" >
+          </div>
+          <div class="login-input-container">
+            <input class="login-input-box" type="password" formControlName="pass" placeholder="رمزعبور خود را وارد کنید">
+          </div>
+          <br>
+          <button type="submit" class="login-btn">ورود</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

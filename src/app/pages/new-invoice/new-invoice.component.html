@@ -1,0 +1,157 @@
+<div class="row new-invoice-content">
+
+  <div class="col-7" style="height: 100%;">
+    <img *ngIf="!imagFlag0 && !imagFlag1 && !imagFlag2 && !imagFlag3 && !startTripFlag" src="assets/planning1.jpg"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-right"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="3000">
+
+    <img *ngIf="imagFlag0 && !imagFlag1 && !imagFlag2 && !imagFlag3 && !startTripFlag" src="assets/bus-1.png"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-left"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="3000">
+
+    <img *ngIf="imagFlag0 && imagFlag1 && !imagFlag2 && !imagFlag3 && !startTripFlag" src="assets/bus-2.png"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-left"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="1000">
+
+    <img *ngIf="imagFlag0 && !imagFlag1 && imagFlag2 && !imagFlag3 && !startTripFlag" src="assets/bus-3.png"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-left"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="1000">
+
+    <img *ngIf="imagFlag0 && imagFlag1 && imagFlag2 && !imagFlag3 && !startTripFlag" src="assets/bus-4.png"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-left"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="1000">
+
+    <img *ngIf="imagFlag0 && !imagFlag1 && !imagFlag2 && imagFlag3 && !startTripFlag" src="assets/bus-5.png"
+         alt=""
+         class="image-new-trip"
+         data-aos="fade-left"
+         data-aos-anchor="#example-anchor"
+         data-aos-duration="1000">
+
+    <img *ngIf="startTripFlag && startTripFlag0" src="assets/planning1.jpg"
+      alt=""
+      class="animated fadeOutLeft image-new-trip">
+    <img *ngIf="startTripFlag && startTripFlag1" src="assets/bus-1.png"
+         alt=""
+         class="animated fadeOutLeft image-new-trip">
+    <img *ngIf="startTripFlag && startTripFlag2" src="assets/bus-2.png"ng s
+         alt=""
+         class="animated fadeOutLeft image-new-trip">
+    <img *ngIf="startTripFlag && startTripFlag3" src="assets/bus-3.png"
+         alt=""
+         class="animated fadeOutLeft image-new-trip">
+    <img *ngIf="startTripFlag && startTripFlag4" src="assets/bus-4.png"
+         alt=""
+         class="animated fadeOutLeft image-new-trip">
+    <img *ngIf="startTripFlag && startTripFlag5" src="assets/bus-5.png"
+         alt=""
+         class="animated fadeOutLeft image-new-trip">
+
+
+  </div>
+
+
+  <div class="col-5" style="height: 100%; direction: ltr; text-align: center">
+
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel style="font-family: B titr; margin-right: 8px;">اطلاعات سفر</ng-template>
+          <mat-form-field>
+            <mat-label>مقصد</mat-label>
+            <div style="direction: rtl">
+              <input matInput placeholder="مقصد سفر را وارد کنید." formControlName="tripDestination" required>
+            </div>
+          </mat-form-field>
+          <br>
+          <mat-form-field  color="blue" appearance="fill">
+            <mat-label>تاریخ شروع سفر</mat-label>
+            <input matInput formControlName="tripDate"  [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+
+          <div>
+            <button mat-button  style="background-color: #98c1f1; font-family: b nazanin;font-weight: bold; outline: none; border-radius: 9px;" (click)="newTripFirstStep(stepper)">گام بعد</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>اطلاعات همسفران</ng-template>
+          <mat-form-field>
+            <mat-label>نام همراه</mat-label>
+            <div style="direction: rtl">
+              <input matInput formControlName="fellowTravelerFName" placeholder="نام همسفرتان را وارد کنید">
+            </div>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>نام خانوادگی همراه</mat-label>
+            <div style="direction: rtl">
+              <input matInput formControlName="fellowTravelerLName" placeholder="نام خانوادگی همسفرتان را وارد کنید">
+            </div>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>نام کاربری همراه</mat-label>
+            <div style="direction: rtl">
+              <input matInput formControlName="fellowTravelerUserName" placeholder="در صورتی که همسفرتان حساب کاربری دارد، نام کاربری همسفرتان را وارد کنید.">
+            </div>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>شماره تماس همراه</mat-label>
+            <div style="direction: rtl">
+              <input matInput formControlName="fellowTravelerPhone" placeholder="شماره تماس همسفرتان را وارد کنید">
+            </div>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>ایمیل</mat-label>
+            <div style="direction: rtl">
+              <input matInput formControlName="fellowTravelerEmail" placeholder="ایمیل همسفرتان را وارد کنید">
+            </div>
+          </mat-form-field>
+          <div>
+            <button mat-button style="background-color: #98c1f1; font-family: b nazanin;font-weight: bold; outline: none; border-radius: 9px;" (click)="addFellowTraveler()">افزودن</button>
+            <br>
+            <button mat-button matStepperNext style="background-color: #98c1f1; font-family: b nazanin;font-weight: bold; outline: none; border-radius: 9px; margin-top: 6px;">گام بعد</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>جزئیات سفر</ng-template>
+          <mat-form-field class="example-full-width">
+            <mat-label>توضیحات</mat-label>
+            <div style="direction: rtl;">
+              <textarea matInput formControlName="tripDetail" placeholder="توضیح مختصری از سفرتان را بنویسید" class="trip-detail-textarea"></textarea>
+            </div>
+          </mat-form-field>
+          <div>
+            <button mat-button style="background-color: #98c1f1; font-family: b nazanin;font-weight: bold; outline: none; border-radius: 9px; margin-top: 6px;" (click)="newTripFinalStep()">ثبت نهایی</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+
+  </div>
+
+
+</div>
