@@ -23,7 +23,10 @@ export const MY_DATE_FORMATS = {
   ]
 })
 export class DashboardComponent implements OnInit {
-  x = 'صالح';
+  username: string;
+  firstName: string;
+  lastName: string;
+  dtext: string;
   initFlag = false;
 
 
@@ -60,6 +63,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.auth.user_Info().subscribe( rsp => {
+      // @ts-ignore
+      this.username = rsp.username;
+      // @ts-ignore
+      this.firstName = rsp.firstName;
+      // @ts-ignore
+      this.lastName = rsp.lastName;
+      this.dtext = this.firstName + ' ' + this.lastName;
+    });
     this.initFlag = false;
   }
 

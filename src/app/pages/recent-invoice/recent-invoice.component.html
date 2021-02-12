@@ -1,157 +1,148 @@
 <div class="new-invoice-content row">
-  <div class="col-4">
-    <mat-card *ngIf="showFlag1" class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag3" class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title [textContent]="tripDestTitle[2]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[2]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext" [textContent]="tripDestTitle[2]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[2]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[2]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[2]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
     <mat-card *ngIf="showFlag2"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image2"></div>
-        <mat-card-title [textContent]="tripDestTitle[1]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[1]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[1]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[1]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[1]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[1]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
-    <mat-card *ngIf="showFlag3"  class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag1"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image3"></div>
-        <mat-card-title [textContent]="tripDestTitle[0]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[0]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[0]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[0]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[0]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[0]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
 
 <div class="new-invoice-content row">
-  <div class="col-4">
-    <mat-card *ngIf="showFlag4"  class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag6"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image2"></div>
-        <mat-card-title [textContent]="tripDestTitle[5]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[5]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[5]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[5]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[5]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[5]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
     <mat-card *ngIf="showFlag5"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image3"></div>
-        <mat-card-title [textContent]="tripDestTitle[4]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[4]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[4]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[4]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[4]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[4]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
-    <mat-card *ngIf="showFlag6" class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag4" class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title [textContent]="tripDestTitle[3]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[3]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[3]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[3]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[3]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[3]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
 
 <div class="new-invoice-content row">
-  <div class="col-4">
-    <mat-card *ngIf="showFlag7"  class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag9"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image3"></div>
-        <mat-card-title [textContent]="tripDestTitle[8]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[8]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[8]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[8]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[8]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[8]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
     <mat-card *ngIf="showFlag8"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title [textContent]="tripDestTitle[7]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[7]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[7]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext"  [textContent]="tripDateString[7]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[7]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns"  mat-button routerLink="/profile/manage-trip/{{userTripId[7]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div class="col-4">
-    <mat-card *ngIf="showFlag9"  class="example-card">
+  <div class="col-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+    <mat-card *ngIf="showFlag7"  class="example-card">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image2"></div>
-        <mat-card-title [textContent]="tripDestTitle[6]"></mat-card-title>
-        <mat-card-subtitle [textContent]="tripDateString[6]"></mat-card-subtitle>
+        <mat-card-title class="trip-dest-dtext"  [textContent]="tripDestTitle[6]"></mat-card-title>
+        <mat-card-subtitle class="trip-date-dtext" [textContent]="tripDateString[6]"></mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p [textContent]="tripDetailString[6]" class="trip-detail-dtext"></p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <button class="manage-trip-btns" mat-button routerLink="/profile/manage-trip/{{userTripId[6]}}">مدیریت سفر</button>
       </mat-card-actions>
     </mat-card>
   </div>

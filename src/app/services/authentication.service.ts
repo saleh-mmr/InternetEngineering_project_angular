@@ -19,6 +19,11 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
 
+  private tripInfoUrl = 'http://127.0.0.1:8000/trip-info';
+  private editTripInfoUrl = 'http://127.0.0.1:8000/edit-trip-info';
+  private addParticipantUrl = 'http://127.0.0.1:8000/add-participant';
+
+
 
   // tslint:disable-next-line:typedef
   login(data) {
@@ -47,8 +52,13 @@ export class AuthenticationService {
   }
 
   // tslint:disable-next-line:typedef
-  add_Participant(data){
-    return this.http.post<any>('http://127.0.0.1:8000/new-participant/', data);
+  user_Info(){
+    return this.http.get('http://127.0.0.1:8000/user-info/');
+  }
+
+  // tslint:disable-next-line:typedef
+  add_Participant(id, data){
+    return this.http.post<any>(`${this.addParticipantUrl}/${id}`, data);
   }
 
   // tslint:disable-next-line:typedef
@@ -59,6 +69,16 @@ export class AuthenticationService {
   // tslint:disable-next-line:typedef
   user_Trips(){
     return this.http.get('http://127.0.0.1:8000/user-all-trips/');
+  }
+
+  // tslint:disable-next-line:typedef
+  trip_Info(id){
+    return this.http.get(`${this.tripInfoUrl}/${id}`);
+  }
+
+  // tslint:disable-next-line:typedef
+  edit_Trip_Info(id, data){
+    return this.http.post<any>(`${this.editTripInfoUrl}/${id}`, data);
   }
 
 }

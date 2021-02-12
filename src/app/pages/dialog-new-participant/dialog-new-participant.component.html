@@ -1,0 +1,39 @@
+<form action="" [formGroup]="participantForm" class="signup-form">
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>نام همراه</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="first_name" placeholder="نام همسفرتان را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>نام خانوادگی همراه</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="last_name" placeholder="نام خانوادگی همسفرتان را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>نام کاربری همراه</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="user_name" placeholder="در صورتی که همسفرتان حساب کاربری دارد، نام کاربری همسفرتان را وارد کنید.">
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>شماره تماس همراه</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="phone" placeholder="شماره تماس همسفرتان را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>ایمیل</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="email" placeholder="ایمیل همسفرتان را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+  <button mat-button [mat-dialog-close]="false" mat-dialog-close class="return-to-trip-management-btn">بازگشت</button>
+  <button mat-button [mat-dialog-close]="true"  (click)="newParticipant()" cdkFocusInitial class="submit-new-participant-form">ثبت همسفر</button>
+</form>

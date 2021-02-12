@@ -22,17 +22,19 @@ export class UserComponent implements OnInit {
   @ViewChild('main') main: ElementRef;
   @ViewChild('sidebar') sidebar: ElementRef;
 
+  // tslint:disable-next-line:max-line-length
   constructor(private formBuilder: FormBuilder, private auth: AuthenticationService, private api: ApiService, private router: Router, private _snackBar: MatSnackBar) {
     this.loginFormGroup = formBuilder.group({
       user: ['', Validators.required],
       pass: ['', Validators.required],
     });
     this.signupFormGroup = formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: [''],
+
     });
   }
 

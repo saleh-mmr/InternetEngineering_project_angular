@@ -29,6 +29,21 @@
 }
 .trip-detail-dtext{
   font-family: b nazanin;
-  margin-top: 25px;
+  margin-top: 10px;
   font-size: 16px;
+  font-weight: bold;
+}
+.manage-trip-btns{
+  background-color: #4060bd;
+  font-family: b titr;
+  color: white;
+  border-radius: 13px;
+  font-size: 12px;
+  outline: none;
+}
+.trip-dest-dtext{
+  font-weight: bold;
+}
+.trip-date-dtext{
+  font-weight: bold;
 }

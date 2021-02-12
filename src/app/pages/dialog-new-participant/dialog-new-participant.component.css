@@ -1,0 +1,27 @@
+.signup-form{
+  text-align: center;
+  width: 350px;
+  height: 400px;
+}
+.dialog-new-participant-form{
+  width: 15rem;
+  font-family: b nazanin;
+  text-align: center;
+  margin-top: 10px;
+}
+.submit-new-participant-form{
+  background-color: #98c1f1;
+  font-family: b nazanin;
+  font-weight: bold;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 25px;
+}
+.return-to-trip-management-btn{
+  background-color: #adadad;
+  font-family: b nazanin;
+  font-weight: bold;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 25px;
+}

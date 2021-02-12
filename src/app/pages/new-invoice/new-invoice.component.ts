@@ -153,7 +153,6 @@ export class NewInvoiceComponent implements OnInit {
             this.secondFormGroup.controls.fellowTravelerUserName.setValue('');
             this.secondFormGroup.controls.fellowTravelerPhone.setValue('');
             this.secondFormGroup.controls.fellowTravelerEmail.setValue('');
-            console.log(this.fellowTraveler);
           }
         }
         else {
@@ -188,7 +187,6 @@ export class NewInvoiceComponent implements OnInit {
         this.secondFormGroup.controls.fellowTravelerUserName.setValue('');
         this.secondFormGroup.controls.fellowTravelerPhone.setValue('');
         this.secondFormGroup.controls.fellowTravelerEmail.setValue('');
-        console.log(this.fellowTraveler);
       }
     }
   }
@@ -198,10 +196,8 @@ export class NewInvoiceComponent implements OnInit {
     this.tDetail = this.thirdFormGroup.controls.tripDetail.value;
     this.data = {tripDestination: this.tDestination, tripDate: this.tDate, tripDetail: this.tDetail};
     this.auth.new_Trip(this.data).subscribe(rsp => {
-      console.log(rsp);
       // tslint:disable-next-line:max-line-length
-      this.auth.add_Participant({trip_dest: this.tDestination, trip_date: this.tDate, participants: this.fellowTraveler}).subscribe(rsp1 => {
-        console.log(rsp1);
+      this.auth.add_Participant(rsp.newTripId, {participants: this.fellowTraveler}).subscribe(rsp1 => {
       });
     });
     this.thirdFormGroup.controls.tripDetail.setValue('');

@@ -1,0 +1,341 @@
+<div class="new-invoice-content">
+
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="اطلاعات سفر" style="font-family: b titr !important; color: #673ab7;">
+      <form [formGroup]="tripInfoFormGroup" style="text-align: center;">
+        <ng-template matStepLabel style="font-family: B titr; margin-right: 8px;">اطلاعات سفر</ng-template>
+
+        <mat-form-field style="width: 15rem;font-family: b nazanin;text-align: center;margin-top: 40px;">
+          <mat-label>مقصد</mat-label>
+          <div style="direction: rtl">
+            <input matInput placeholder="مقصد سفر را وارد کنید." formControlName="tripDestination" style="font-weight: bold;" [value]="tripDestination">
+          </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field  color="blue" appearance="fill"  style="width: 15rem; text-align: center;margin-top: 20px;">
+          <mat-label>تاریخ شروع سفر</mat-label>
+          <input matInput  formControlName="tripDate" [matDatepicker]="picker1" style="font-weight: bold;" [value]="tripDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field style="width: 15rem;font-family: b nazanin;text-align: center;margin-top: 20px;">
+          <mat-label>مسئول سفر</mat-label>
+          <div style="direction: rtl">
+            <input matInput disabled style="font-weight: bold; color: #007bff;" [value]="tripLeader">
+          </div>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" style="width: 15rem;font-family: b nazanin;text-align: center;margin-top: 20px;">
+          <mat-label>توضیحات</mat-label>
+          <div style="direction: rtl;">
+            <textarea matInput formControlName="tripDetail" placeholder="توضیح مختصری از سفرتان را بنویسید" class="trip-detail-dtextarea" [value]="tripDetail"></textarea>
+          </div>
+        </mat-form-field>
+
+        <div>
+          <button mat-button  style="background-color: #4e73df; font-family: b titr; outline: none; border-radius: 20px; color: white; font-size: 14px;" (click)="editTripInfo()">ویرایش</button>
+        </div>
+      </form>
+
+      <div style="text-align: center;">
+        <img src="assets/trip23.gif" alt="" style="margin-top: 25px;height: 15rem;">
+      </div>
+
+    </mat-tab>
+
+    <mat-tab label="همسفران">
+      <div class="row" style="width: 100%;">
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[3]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant4.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[3]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[3])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[3]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[3]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[3]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[3]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[2]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant3.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[2]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[2])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[2]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[2]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[2]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[2]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[1]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant2.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[1]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[1])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[1]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[1]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[1]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[1]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[0]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant1.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[0]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[0])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[0]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[0]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[0]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[0]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+
+      </div>
+
+      <div class="row" style="width: 100%;">
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[7]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant8.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[7]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[7])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[7]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[7]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[7]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[7]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[6]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant7.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[6]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[6])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[6]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[6]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[6]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[6]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[5]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant6.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[5]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[5])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[5]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[5]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[5]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[5]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[4]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant5.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[4]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[4])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[4]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[4]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[4]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[4]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+      </div>
+
+      <div class="row" style="width: 100%;">
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[11]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant12.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[11]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[11])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[11]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[11]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[11]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[11]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[10]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant11.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[10]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[10])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[10]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[10]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[10]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[10]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[9]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant10.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[9]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[9])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[9]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[9]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[9]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[9]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+        <div class="col-3" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
+          <mat-card *ngIf="participantsFlag[8]" class="example-card">
+            <mat-card-header>
+              <img src="assets/participant9.png" alt="" style="height: 80px; margin: auto;">
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title class="participant-full-name-dtext">
+                <span [textContent]="participantsFullName[8]"></span>
+                <button style="border: none; outline: none; background: none;">
+                  <mat-icon aria-hidden="false" aria-label="Example create icon" style="color: #4e73df;font-size: 19px;" (click)="editParticipantInfo(participantsID[8])">create</mat-icon>
+                </button>
+              </mat-card-title>
+              <mat-card-subtitle class="participant-username-dtext"  [textContent]="participantsUserName[8]"></mat-card-subtitle>
+              <p [textContent]="participantsEmail[8]" class="participant-detail-info-dtext"></p>
+              <p [textContent]="participantsPhone[8]" class="participant-detail-info-dtext"></p>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+          </mat-card>
+          <button style="text-align: center; margin-top: 50px; background:none;border: none;outline: none;height: 10rem;width: 10rem;">
+            <img *ngIf="addBtnFlag[8]" src="assets/add.png" alt="" style="height: 10rem">
+          </button>
+        </div>
+
+      </div>
+
+
+    </mat-tab>
+    <mat-tab label="تراکنش ها">Content 3</mat-tab>
+  </mat-tab-group>
+
+</div>
+<button class="return-to-recent-invoice-btn" routerLink="/profile/recent-invoice">بازگشت</button>

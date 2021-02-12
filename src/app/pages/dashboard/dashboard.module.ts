@@ -16,6 +16,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {PizzaPartyComponent} from '../pizza-party-component/pizza-party-component.component';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import {TripManagementComponent} from '../trip-management/trip-management.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {DialogNewParticipantComponent} from '../dialog-new-participant/dialog-new-participant.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,8 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     NewInvoiceComponent,
     RecentInvoiceComponent,
     PizzaPartyComponent,
+    TripManagementComponent,
+    DialogNewParticipantComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +46,9 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     MatSnackBarModule,
     FormsModule,
     MomentDateModule,
+    MatTabsModule,
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class ProfileModule { }
