@@ -22,6 +22,9 @@ export class AuthenticationService {
   private tripInfoUrl = 'http://127.0.0.1:8000/trip-info';
   private editTripInfoUrl = 'http://127.0.0.1:8000/edit-trip-info';
   private addParticipantUrl = 'http://127.0.0.1:8000/add-participant';
+  private tripParticipantsUrl = 'http://127.0.0.1:8000/trip-participants';
+  private tripTransactionsUrl = 'http://127.0.0.1:8000/trip-transactions';
+  private calculateDongUrl = 'http://127.0.0.1:8000/calculate-dong';
 
 
 
@@ -62,6 +65,21 @@ export class AuthenticationService {
   }
 
   // tslint:disable-next-line:typedef
+  add_Transaction(data){
+    return this.http.post<any>('http://127.0.0.1:8000/add-transaction/', data);
+  }
+
+  // tslint:disable-next-line:typedef
+  trip_participants(id){
+    return this.http.get(`${this.tripParticipantsUrl}/${id}`);
+  }
+
+  // tslint:disable-next-line:typedef
+  trip_Transactions(id){
+    return this.http.get(`${this.tripTransactionsUrl}/${id}`);
+  }
+
+  // tslint:disable-next-line:typedef
   check_Participant(data){
     return this.http.post<any>('http://127.0.0.1:8000/check-participant/', data);
   }
@@ -79,6 +97,11 @@ export class AuthenticationService {
   // tslint:disable-next-line:typedef
   edit_Trip_Info(id, data){
     return this.http.post<any>(`${this.editTripInfoUrl}/${id}`, data);
+  }
+
+  // tslint:disable-next-line:typedef
+  calculate_Dong(id){
+    return this.http.get(`${this.calculateDongUrl}/${id}`);
   }
 
 }

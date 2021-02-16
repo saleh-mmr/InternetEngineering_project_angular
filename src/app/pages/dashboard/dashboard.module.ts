@@ -21,6 +21,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DialogNewParticipantComponent} from '../dialog-new-participant/dialog-new-participant.component';
+import {DialogNewTransactionComponent} from '../dialog-new-transaction/dialog-new-transaction.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {DialogNewParticipantComponent} from '../dialog-new-participant/dialog-ne
     RecentInvoiceComponent,
     PizzaPartyComponent,
     TripManagementComponent,
-    DialogNewParticipantComponent
+    DialogNewParticipantComponent,
+    DialogNewTransactionComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +51,8 @@ import {DialogNewParticipantComponent} from '../dialog-new-participant/dialog-ne
     MomentDateModule,
     MatTabsModule,
     MatIconModule,
-    MatDialogModule
-  ]
+    MatDialogModule,
+    MatSelectModule
+]
 })
 export class ProfileModule { }

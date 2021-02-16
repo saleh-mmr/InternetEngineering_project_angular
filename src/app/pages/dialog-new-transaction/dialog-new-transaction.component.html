@@ -1,0 +1,30 @@
+<form action="" [formGroup]="transactionForm" class="signup-form">
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>عنوان تراکنش</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="transaction_title" placeholder="عنوان تراکنش را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="dialog-new-participant-form">
+    <mat-label>هزینه تراکنش</mat-label>
+    <div style="direction: rtl">
+      <input matInput formControlName="cost" placeholder="هزینه تراکنش را وارد کنید">
+    </div>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill"  class="dialog-new-participant-form">
+    <mat-label>پرداخت کننده</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="food" formControlName="payerID">
+      <mat-option *ngFor="let food of foods" [value]="food.value" >
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+  <button mat-button [mat-dialog-close]="false" mat-dialog-close class="return-to-trip-management-btn">بازگشت</button>
+  <button mat-button [mat-dialog-close]="true"  (click)="newTransaction()" cdkFocusInitial class="submit-new-participant-form">ثبت تراکنش</button>
+</form>

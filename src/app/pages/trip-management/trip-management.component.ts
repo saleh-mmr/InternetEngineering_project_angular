@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DialogNewParticipantComponent} from '../dialog-new-participant/dialog-new-participant.component';
 import {ApiService} from '../../services/api.service';
 import {log} from 'util';
+import {DialogNewTransactionComponent} from '../dialog-new-transaction/dialog-new-transaction.component';
 
 @Component({
   selector: 'app-trip-management',
@@ -29,7 +30,20 @@ export class TripManagementComponent implements OnInit {
   addBtnFlag = [];
   transactionFlag = [];
   addTransactionBtnFlag = [];
-
+  transactionTitle = [];
+  transactionCost = [];
+  transactionPayer = [];
+  Bname = [];
+  bedehiCost = [];
+  Tname = [];
+  page = 0;
+  bedehkarName: string;
+  talabkarName: string;
+  cosst: number;
+  nextPageBtnFlag = [];
+  currentFlagNextPageBtn = false;
+  previousPageBtnFlag = [];
+  currentFlagPreviousPageBtn = false;
 
   date = new FormControl(new Date());
 
@@ -95,11 +109,37 @@ export class TripManagementComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addTransactionDialog() {
+    this.api.changeMessage(this.router.snapshot.params.id);
+    const dialogRef = this.dialog.open(DialogNewTransactionComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.auth.trip_Transactions(this.router.snapshot.params.id).subscribe(rsp => {
+        // tslint:disable-next-line:max-line-length
+        this.transactionFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        // tslint:disable-next-line:max-line-length
+        this.addTransactionBtnFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        this.transactionTitle = [];
+        this.transactionCost = [];
+        this.transactionPayer = [];
 
+        // @ts-ignore
+        for (let i = 0; i < rsp.number; i++) {
+          this.transactionFlag[i] = true;
+        }
+        // @ts-ignore
+        this.addTransactionBtnFlag[rsp.number] = true;
+        // @ts-ignore
+        for (let i = 1; i <= rsp.number; i++) {
+          // @ts-ignore
+          this.transactionTitle.push(rsp[i].title);
+          // @ts-ignore
+          this.transactionCost.push(rsp[i].cost);
+          // @ts-ignore
+          this.transactionPayer.push(rsp[i].payer);
+        }
+
+      });
+    });
   }
-
-
-
 
   calculateDate(input): string{
     let day = input.date;
@@ -142,10 +182,15 @@ export class TripManagementComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.page = 0;
     // tslint:disable-next-line:max-line-length
     this.participantsFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
     // tslint:disable-next-line:max-line-length
     this.addBtnFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+    // tslint:disable-next-line:max-line-length
+    this.transactionFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+    // tslint:disable-next-line:max-line-length
+    this.addTransactionBtnFlag = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
 
     this.auth.trip_Info(this.router.snapshot.params.id).subscribe(rsp => {
       // @ts-ignore
@@ -177,11 +222,79 @@ export class TripManagementComponent implements OnInit {
         this.participantsID.push(rsp.participants[i].id);
       }
     });
+
+    this.auth.trip_Transactions(this.router.snapshot.params.id).subscribe(rsp => {
+      // @ts-ignore
+      for (let i = 0; i < rsp.number; i++) {
+        this.transactionFlag[i] = true;
+      }
+      // @ts-ignore
+      this.addTransactionBtnFlag[rsp.number] = true;
+      // @ts-ignore
+      for (let i = 1; i <= rsp.number; i++) {
+        // @ts-ignore
+        this.transactionTitle.push(rsp[i].title);
+        // @ts-ignore
+        this.transactionCost.push(rsp[i].cost);
+        // @ts-ignore
+        this.transactionPayer.push(rsp[i].payer);
+      }
+
+    });
   }
 
   // tslint:disable-next-line:typedef
   editParticipantInfo(id: any){
     console.log(id);
+  }
+
+  // tslint:disable-next-line:typedef
+  calculateDong(){
+    this.nextPageBtnFlag = [];
+    this.previousPageBtnFlag = [];
+    this.auth.calculate_Dong(this.router.snapshot.params.id).subscribe(rsp => {
+      console.log(rsp);
+      this.previousPageBtnFlag.push(false);
+      for (let i = 0; i < rsp.number; i++) {
+        this.Bname.push(rsp[i].Bname);
+        this.bedehiCost.push(rsp[i].cost);
+        this.Tname.push(rsp[i].Tname);
+        this.nextPageBtnFlag.push(true);
+        this.previousPageBtnFlag.push(true);
+      }
+      if (rsp.number > 0){
+        this.nextPageBtnFlag.pop();
+        this.previousPageBtnFlag.pop();
+        this.nextPageBtnFlag.push(false);
+        this.currentFlagPreviousPageBtn = this.previousPageBtnFlag[0];
+        this.currentFlagNextPageBtn = this.nextPageBtnFlag[0];
+        this.bedehkarName = this.Bname[0];
+        this.cosst = this.bedehiCost[0];
+        this.talabkarName = this.Tname[0];
+      }
+      else {
+        this.nextPageBtnFlag.push(false);
+      }
+    });
+  }
+
+  nextPage(): void{
+    this.page = this.page + 1;
+    this.bedehkarName = this.Bname[this.page];
+    this.cosst = this.bedehiCost[this.page];
+    this.talabkarName = this.Tname[this.page];
+    this.currentFlagNextPageBtn = this.nextPageBtnFlag[this.page];
+    this.currentFlagPreviousPageBtn = this.previousPageBtnFlag[this.page];
+
+  }
+
+  previousPage(): void{
+    this.page = this.page - 1;
+    this.bedehkarName = this.Bname[this.page];
+    this.cosst = this.bedehiCost[this.page];
+    this.talabkarName = this.Tname[this.page];
+    this.currentFlagNextPageBtn = this.nextPageBtnFlag[this.page];
+    this.currentFlagPreviousPageBtn = this.previousPageBtnFlag[this.page];
   }
 
 }

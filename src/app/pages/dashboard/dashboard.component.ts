@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   lastName: string;
   dtext: string;
   initFlag = false;
+  title: string;
 
 
   @ViewChild('main') main: ElementRef;
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
   constructor(private auth: AuthenticationService) { }
 
   newInvoice(): void{
+    this.title = 'شروع سفر جدید';
     this.initFlag = true;
     this.main.nativeElement.classList.remove('col-11');
     this.sidebar.nativeElement.classList.remove('col-1');
@@ -44,6 +46,7 @@ export class DashboardComponent implements OnInit {
   }
 
   recentInvoice(): void{
+    this.title = 'مدیریت سفر های اخیر';
     this.initFlag = true;
     this.main.nativeElement.classList.remove('col-11');
     this.sidebar.nativeElement.classList.remove('col-1');

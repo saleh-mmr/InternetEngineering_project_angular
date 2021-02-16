@@ -3,12 +3,11 @@
   height: 25vh;
   text-align: right;
 }
-.example-card {
-  max-width: 400px;
+.example-card{
+  width: 400px;
   height: 200px;
   direction: rtl;
 }
-
 .example-header-image {
   width: 85px;
   height: 80px;
@@ -42,8 +41,11 @@
   outline: none;
 }
 .trip-dest-dtext{
-  font-weight: bold;
+  font-family: B titr;
+  font-weight: bolder;
+  font-size: 19px;
 }
 .trip-date-dtext{
   font-weight: bold;
+  margin-top: 10px;
 }

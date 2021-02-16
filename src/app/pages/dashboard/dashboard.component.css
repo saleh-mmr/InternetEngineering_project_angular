@@ -69,16 +69,15 @@
 .header-content-main{
   height: 12vh;
   background-color: #5e90cc;
-  border: solid;
-  border-color: #007bff;
+  border: solid #007bff;
   border-radius: 35px;
+  color: #edf1ff;
 }
 .profile-content-root{
   height: 85vh;
   background: white;
   box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.3);
-  border: solid;
-  border-color: #007bff;
+  border: solid #007bff;
   border-radius: 35px;
   margin-top: 2vh;
 }
